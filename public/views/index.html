@@ -6,9 +6,17 @@
     <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.6/angular.min.js"></script>
     <script src="/scripts/client.js"></script>
   </head>
-  <body ng-app="bookApp">
-    <main ng-controller="BookController as book">
-      <strong>{{book.message}}</strong>
+  <body ng-app="pokeApp">
+    <main ng-controller="PokemonController as pokemon">
+      <h1>Pokemon!</h1>
+      <ul>
+        <li ng-repeat="individualPokemon in pokemon.pokemonList">
+          <button ng-click="pokemon.iChooseYou(individualPokemon)">{{individualPokemon.name}}</button>
+          <img ng-show="individualPokemon.imageUrl"
+               ng-src="{{individualPokemon.imageUrl}}"
+               alt="A cute picture of {{individualPokemon.name}}"/>
+        </li>
+      </ul>
     </main>
   </body>
 </html>
